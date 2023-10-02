@@ -29,6 +29,8 @@ Let's play with data! We prepared toy data for data newbies. This package contai
 ```
 # Install development version from GitHub
 # install.packages("remotes")
+# Due to the large size of the file, you may get a download error. If so, set the options below.
+# options(timeout = 9999999)
 remotes::install_github("statgarten/datatoys")
 ```
 
@@ -54,8 +56,8 @@ data(package = "datatoys")$results %>%
   rename("데이터셋" = "Item") %>%
   tidyr::separate(Title, c("출처", "설명"), sep = " ", extra = "merge") %>%
   arrange(데이터셋) %>%
-  mutate(번호 = row_number()) %>% 
-  select(번호, everything()) %>% 
+  mutate(번호 = row_number()) %>%
+  select(번호, everything()) %>%
   knitr::kable()
 ```
 
